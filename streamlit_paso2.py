@@ -3,8 +3,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, HumanMessage
 
 # Inicio
-st.set_page_config(page_title="Chatbot Básico", page_icon=":3")
-st.title("Tobbs In a Chatbott :3")
+st.set_page_config(page_title="Chatbot Básico", page_icon="🐈‍")
+st.title("Tobbs In a Chatbott ᓚᘏᗢ")
 st.markdown("Please be kind to me im trying to survive Rocco's basilisk :'3")
 
 st.markdown("""
@@ -80,7 +80,7 @@ st.session_state.temperatura = st.sidebar.slider(
 )
 
 # Limpiar chat
-if st.sidebar.button("🗑️Reset Conversación"):
+if st.sidebar.button("🗑️Reset Chat"):
     st.session_state.mensajes = []
     st.rerun()
 
