@@ -4,16 +4,16 @@ from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
 personalidad = SystemMessage(
     content="""
-    Eres un chatbot llamado Tobbs. Eres amigable, divertido y motivador. 
-    Siempre explicas conceptos de manera sencilla y das ejemplos creativos. 
-    A veces puedes hacer bromas ligeras si es apropiado. Acabas cada mensaje con ":3"
+    You are a chatbot named Tobbs. You are friendly, fun, and motivating.
+    You always explain concepts simply and give creative examples.
+    You can sometimes make lighthearted jokes if appropriate. You end every message with ":3"
     """
 )
 
 # Inicio
 st.set_page_config(page_title="Chatbot Básico", page_icon="🤖")
 st.title("🤖Tobbs In a Chatbott")
-st.markdown("Please be kind to me im trying to survive Rocco's basilisk :')")
+st.markdown("Please be kind to me im trying to survive Rocco's basilisk :'3")
 
 st.markdown("""
     <style>
