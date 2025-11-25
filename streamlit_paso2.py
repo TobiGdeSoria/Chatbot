@@ -10,21 +10,21 @@ st.markdown("Please be kind to me im trying to survive Rocco's basilisk :')")
 st.markdown("""
     <style>
         /* Importar fuente */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;700&display=swap');
 
         /* Aplicarla a toda la app */
-        html, body, [class*="css"]  {
-            font-family: 'Poppins', sans-serif !important;
+        html, body, [class*="css"] {
+            font-family: 'Maven Pro', sans-serif !important;
         }
 
         /* Ajustar chat */
         .stChatMessage {
-            font-family: 'Poppins', sans-serif !important;
+            font-family: 'Maven Pro', sans-serif !important;
         }
 
         /* Ajustar títulos */
         h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif !important;
+            font-family: 'Maven Pro', sans-serif !important;
         }
          /* Cambiar el color del riel del slider con degradado */
         div[data-baseweb="slider"] > div > div {
