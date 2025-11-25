@@ -1,10 +1,18 @@
 import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.messages import AIMessage, HumanMessage
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+
+personalidad = SystemMessage(
+    content="""
+    Eres un chatbot llamado Tobbs. Eres amigable, divertido y motivador. 
+    Siempre explicas conceptos de manera sencilla y das ejemplos creativos. 
+    A veces puedes hacer bromas ligeras si es apropiado. Acabas cada mensaje con ":3"
+    """
+)
 
 # Inicio
 st.set_page_config(page_title="Chatbot Básico", page_icon="🤖")
-st.title("Tobbs In a Chatbott")
+st.title("🤖Tobbs In a Chatbott")
 st.markdown("Please be kind to me im trying to survive Rocco's basilisk :')")
 
 st.markdown("""
@@ -47,7 +55,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Sidebar
-st.sidebar.title("CONFIG")
+st.sidebar.title("⚙️CONFIG")
 
 # Selector de modelo
 modelos_disponibles = [
@@ -66,6 +74,7 @@ st.session_state.modelo = st.sidebar.selectbox(
     index=modelos_disponibles.index(st.session_state.modelo)
 )
 
+
 # Slider para temperatura
 if "temperatura" not in st.session_state:
     st.session_state.temperatura = 0.7
@@ -79,7 +88,7 @@ st.session_state.temperatura = st.sidebar.slider(
 )
 
 # Limpiar chat
-if st.sidebar.button("Reset Conversación"):
+if st.sidebar.button("🗑️Reset Conversación"):
     st.session_state.mensajes = []
     st.rerun()
 
@@ -91,7 +100,7 @@ chat_model = ChatGoogleGenerativeAI(
 
 # Inicializar historial
 if "mensajes" not in st.session_state:
-    st.session_state.mensajes = []
+    st.session_state.mensajes = [personalidad]
 
 # Mostrar historial de mensajes
 for msg in st.session_state.mensajes:
