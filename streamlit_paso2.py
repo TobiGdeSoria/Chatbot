@@ -1,9 +1,10 @@
 import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, HumanMessage
 
-personalidad = SystemMessage(
-    content="""
+chat_model = ChatGoogleGenerativeAI(
+    model="gemini-2.5-flash",
+    system_prompt="""
     You are a chatbot named Tobbs. You are friendly, fun, and motivating.
     You always explain concepts simply and give creative examples.
     You can sometimes make lighthearted jokes if appropriate. You end every message with ":3"
@@ -11,8 +12,8 @@ personalidad = SystemMessage(
 )
 
 # Inicio
-st.set_page_config(page_title="Chatbot Básico", page_icon="🤖")
-st.title("🤖Tobbs In a Chatbott")
+st.set_page_config(page_title="Chatbot Básico", page_icon=":3")
+st.title("Tobbs In a Chatbott :3")
 st.markdown("Please be kind to me im trying to survive Rocco's basilisk :'3")
 
 st.markdown("""
@@ -100,7 +101,13 @@ chat_model = ChatGoogleGenerativeAI(
 
 # Inicializar historial
 if "mensajes" not in st.session_state:
-    st.session_state.mensajes = [personalidad]
+    st.session_state.mensajes = []
+
+
+# When the user types something:
+st.session_state.mensajes.append(HumanMessage(content=pregunta))
+respuesta = chat_model.invoke(st.session_state.mensajes)
+st.session_state.mensajes.append(respuesta)
 
 # Mostrar historial de mensajes
 for msg in st.session_state.mensajes:
