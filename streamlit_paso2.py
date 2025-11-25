@@ -41,7 +41,6 @@ st.markdown("""
         /* Color del círculo del control del slider */
         div[data-baseweb="slider"] > div > div > div {
             background-color: white !important;
-            border: 2px solid #00B4FF !important;
         }
     </style>
 """, unsafe_allow_html=True)
