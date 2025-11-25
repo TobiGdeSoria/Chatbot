@@ -7,6 +7,44 @@ st.set_page_config(page_title="Chatbot Básico", page_icon="🤖")
 st.title("Tobbs In a Chatbott")
 st.markdown("Please be kind to me im trying to survive Rocco's basilisk :')")
 
+st.markdown("""
+    <style>
+        .stApp {
+            background-color: #0E1117;
+        }
+        .stChatMessage {
+            color: white;
+        }
+        .stMarkdown {
+            color: white;
+        }
+        .css-1kyxreq, .css-1c7y2kd {
+            background-color: #1A1D23 !important;
+        }
+        .stTextInput > div > div > input {
+            background-color: #1A1D23;
+            color: white;
+        }
+         /* Cambiar el color del riel del slider con degradado */
+        div[data-baseweb="slider"] > div > div {
+            background: linear-gradient(90deg,
+                #00B4FF 0%,
+                #7DFF6A 30%,
+                #FFF000 60%,
+                #FF7A00 80%,
+                #FF0000 100%
+            ) !important;
+            height: 6px;
+        }
+
+        /* Color del círculo del control del slider */
+        div[data-baseweb="slider"] > div > div > div {
+            background-color: white !important;
+            border: 2px solid #00B4FF !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 # Sidebar
 st.sidebar.title("CONFIG")
 
