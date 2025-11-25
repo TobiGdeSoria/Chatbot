@@ -26,19 +26,22 @@ st.markdown("""
         h1, h2, h3, h4 {
             font-family: 'Maven Pro', sans-serif !important;
         }
-        /* Slider con degradado azul → morado */
+         /* Cambiar el color del riel del slider con degradado */
         div[data-baseweb="slider"] > div > div {
             background: linear-gradient(90deg,
-                #3A86FF 0%,   /* Azul */
-                #8338EC 100%  /* Morado */
+                #00B4FF 0%,
+                #7DFF6A 30%,
+                #FFF000 60%,
+                #FF7A00 80%,
+                #FF0000 100%
             ) !important;
             height: 6px;
         }
 
-        /* Círculo del control del slider */
+        /* Color del círculo del control del slider */
         div[data-baseweb="slider"] > div > div > div {
             background-color: white !important;
-            border: 2px solid #3A86FF !important;
+            border: 2px solid white !important;
         }
     </style>
 """, unsafe_allow_html=True)
