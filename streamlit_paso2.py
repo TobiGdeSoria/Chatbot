@@ -9,21 +9,22 @@ st.markdown("Please be kind to me im trying to survive Rocco's basilisk :')")
 
 st.markdown("""
     <style>
-        .stApp {
-            background-color: #0E1117;
+        /* Importar fuente */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        /* Aplicarla a toda la app */
+        html, body, [class*="css"]  {
+            font-family: 'Poppins', sans-serif !important;
         }
+
+        /* Ajustar chat */
         .stChatMessage {
-            color: white;
+            font-family: 'Poppins', sans-serif !important;
         }
-        .stMarkdown {
-            color: white;
-        }
-        .css-1kyxreq, .css-1c7y2kd {
-            background-color: #1A1D23 !important;
-        }
-        .stTextInput > div > div > input {
-            background-color: #1A1D23;
-            color: white;
+
+        /* Ajustar títulos */
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif !important;
         }
          /* Cambiar el color del riel del slider con degradado */
         div[data-baseweb="slider"] > div > div {
