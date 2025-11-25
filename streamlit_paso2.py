@@ -2,17 +2,34 @@ import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import AIMessage, HumanMessage
 
-# -------------------------------
-# Configuración inicial
-# -------------------------------
+# Inicio
 st.set_page_config(page_title="Chatbot Básico", page_icon="🤖")
-st.title("🤖 Tobbs Chatbot")
-st.markdown("Este es un *chatbot de ejemplo* construido con LangChain + Streamlit.")
+st.title("Tobbs In a Chatbott")
+st.markdown("Please be kind to me im trying to survive Rocco's basilisk :')")
 
-# -------------------------------
-# Sidebar con controles
-# -------------------------------
-st.sidebar.title("⚙️ Configuración")
+st.markdown("""
+    <style>
+        .stApp {
+            background-color: #0E1117;
+        }
+        .stChatMessage {
+            color: white;
+        }
+        .stMarkdown {
+            color: white;
+        }
+        .css-1kyxreq, .css-1c7y2kd {
+            background-color: #1A1D23 !important;
+        }
+        .stTextInput > div > div > input {
+            background-color: #1A1D23;
+            color: white;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Sidebar
+st.sidebar.title("CONFIG")
 
 # Selector de modelo
 modelos_disponibles = [
@@ -43,36 +60,28 @@ st.session_state.temperatura = st.sidebar.slider(
     value=st.session_state.temperatura
 )
 
-# Botón para limpiar chat
-if st.sidebar.button("🗑️ Limpiar conversación"):
+# Limpiar chat
+if st.sidebar.button("Reset Conversación"):
     st.session_state.mensajes = []
     st.rerun()
 
-# -------------------------------
 # Crear modelo con la configuración
-# -------------------------------
 chat_model = ChatGoogleGenerativeAI(
     model=st.session_state.modelo,
     temperature=st.session_state.temperatura
 )
 
-# -------------------------------
 # Inicializar historial
-# -------------------------------
 if "mensajes" not in st.session_state:
     st.session_state.mensajes = []
 
-# -------------------------------
 # Mostrar historial de mensajes
-# -------------------------------
 for msg in st.session_state.mensajes:
     rol = "assistant" if isinstance(msg, AIMessage) else "user"
     with st.chat_message(rol):
         st.markdown(msg.content)
 
-# -------------------------------
 # Entrada del usuario
-# -------------------------------
 pregunta = st.chat_input("Escribe tu mensaje:")
 
 if pregunta:
